@@ -1,24 +1,65 @@
-let x, y;
-console.log(playRound(x, y))
+let x = 0;
+let y = GetComputerChoice();
+console.log(game(x, y) + '\n');
 
-
-//Gets player selection
-function Player(playerSelection)
+function game(playerSelection, computerSelection)
 {
-    //Ask player input then covert first letter to uppercase and the rest to lower case
-    playerSelection = prompt("Let's play a game of Rock Paper Scissor.\nMake your choice:");
-    const firsLetter = playerSelection.slice(0, 1);
-    const theRest = playerSelection.slice(1);
-    playerSelection = firsLetter.toUpperCase() + theRest.toLowerCase();
-    if (!(playerSelection == 'Scissor') || !(playerSelection == 'Rock') || !(playerSelection == 'Paper'))
+    let player = 0;
+    let computer = 0;
+    for (let i = 1; i <= 5; i++)
     {
-        
-        return "Choice an identified. Automatic lose!\nTry Again?";
+        playRound(playerSelection, computerSelection);
+        if (playRound(playerSelection, computerSelection) == 1)
+        {
+            player++;
+        }
+        else if (playRound(playerSelection, computerSelection) == 0 || playRound(playerSelection, computerSelection))
+        {
+            computer++;
+        }
+        else if (playRound(playerSelection, computerSelection) == 3)
+        {
+            computer++;
+            player++;
+        }
+    }
+    if (computer == player)
+    {
+        return 'Draw\n'
+    }
+    else if (computer > player)
+    {
+        return `You lose by a margin of ${computer - player}\n`;
+    }
+    else
+    {
+        return `You win by a margin of ${player - computer}\n`;
     }
 }
-
-
-//play's a one round game
+//0 for rock, 1 for paper, 2 for scissor and 3 for a different selection.
+function Player(playerSelection)
+{
+    //Ask's for player selection
+    playerSelection = prompt("Let's play a game of Rock Paper Scissor.\nMake your choice:");
+    playerSelection = playerSelection.toLowerCase();
+    if (playerSelection == 'rock')
+    {
+        return 0;
+    }
+    else if (playerSelection == 'paper')
+    {
+        return 1;
+    }
+    else if (playerSelection == 'scissor')
+    {
+        return 2;
+    }
+    else 
+    {
+        return 3;
+    }
+}
+//play's a one round game. Return 3 for draw, 0 for lose, 1 for win and 2 for unknown choice
 function playRound(playerSelection, computerSelection)
 {
     playerSelection = Player();
@@ -26,47 +67,30 @@ function playRound(playerSelection, computerSelection)
 
     if (computerSelection == playerSelection)
     {
-        return "Draw";
+        return 3;
     }
-    else if (computerSelection == 'Scissor')
+    else if (playerSelection == 0)
     {
-        return (playerSelection == 'Rock') ? 'You win! Rock beats beats Scissor' : 'You lose! Paper beats Rock';
+        return (computerSelection == 2) ? 1 : 0;
     }
-    else if (computerSelection == 'Rock')
+    else if (playerSelection == 1)
     {
-        return (playerSelection == 'Paper') ? 'You win! Paper beats beats Rock' : 'You lose! Scissor beats Paper';
+        return (computerSelection == 0) ? 1 : 0;
     }
-    else if (computerSelection == 'Paper')
+    else if (playerSelection == 2)
     {
-        return (playerSelection == 'Scissor') ? 'You win! Scissor beats beats Paper' : 'You lose! Paper beats Rock';
+        return (computerSelection == 1) ? 1 : 0;
     }
     else
     {
-        consol.log(playerSelection);
-        return;
+        return 2;
     }
 }
 
 
-/*
- *Generates a random int form 0-2 and stores it in num
- * if num is 0 returns 'Rock', 'Paper' if num is 1 and 
- * 'Scissor' if num is 2
- */
+//Returns a number from 0-2. 0 stands for rock, 1 for paper and 2 for scissor.function GetComputerChoice()
 function GetComputerChoice()
 {
     let num = Math.floor((Math.random() * 3));
-    if (num === 0)
-    {
-        return "Rock";
-    }
-
-    else if (num === 1)
-    {
-        return "Paper";
-    }
-    else
-    {
-        return "Scissor";
-    }
+    return num;
 }
