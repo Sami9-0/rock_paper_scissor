@@ -1,41 +1,75 @@
-let x = 0;
-let y = GetComputerChoice();
-console.log(game(x, y) + '\n');
-
-function game(playerSelection, computerSelection)
+let playerSelection = 0;
+let computerSelection = GetComputerChoice();
+printWinner();
+function game()
 {
-    let player = 0;
-    let computer = 0;
-    for (let i = 1; i <= 5; i++)
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++)
     {
-        playRound(playerSelection, computerSelection);
-        if (playRound(playerSelection, computerSelection) == 1)
+        let winner = playRound(playerSelection, computerSelection);
+        if (winner == 0)
         {
-            player++;
+            computerScore++;
         }
-        else if (playRound(playerSelection, computerSelection) == 0 || playRound(playerSelection, computerSelection))
+        else if (winner == 1)
         {
-            computer++;
-        }
-        else if (playRound(playerSelection, computerSelection) == 3)
-        {
-            computer++;
-            player++;
+            playerScore++;
         }
     }
-    if (computer == player)
+
+    if (playerScore - computerScore > 0)
     {
-        return 'Draw\n'
-    }
-    else if (computer > player)
-    {
-        return `You lose by a margin of ${computer - player}\n`;
+        return true;
     }
     else
     {
-        return `You win by a margin of ${player - computer}\n`;
+        return false;
     }
 }
+
+//Prints winner
+function printWinner()
+{
+    let winner = game();
+    if (winner)
+    {
+        console.log("You win! Congratulation.");
+    }
+    else
+    {
+        console.log("You lose! Good luck next time.");
+    }
+}
+//play's a one round game. Return 2 for draw, 0 for lose, 1 for win and 3 for unknown choice
+function playRound(playerSelection, computerSelection)
+{
+    playerSelection = Player();
+    computerSelection = GetComputerChoice();
+
+    if (computerSelection == playerSelection)
+    {
+        return 2;
+    }
+    else if (playerSelection == 0)
+    {
+        return (computerSelection == 2) ? 1 : 0;
+    }
+    else if (playerSelection == 1)
+    {
+        return (computerSelection == 0) ? 1 : 0;
+    }
+    else if (playerSelection == 2)
+    {
+        return (computerSelection == 1) ? 1 : 0;
+    }
+    else
+    {
+        return 3;
+    }
+}
+
+
 //0 for rock, 1 for paper, 2 for scissor and 3 for a different selection.
 function Player(playerSelection)
 {
@@ -57,33 +91,6 @@ function Player(playerSelection)
     else 
     {
         return 3;
-    }
-}
-//play's a one round game. Return 3 for draw, 0 for lose, 1 for win and 2 for unknown choice
-function playRound(playerSelection, computerSelection)
-{
-    playerSelection = Player();
-    computerSelection = GetComputerChoice();
-
-    if (computerSelection == playerSelection)
-    {
-        return 3;
-    }
-    else if (playerSelection == 0)
-    {
-        return (computerSelection == 2) ? 1 : 0;
-    }
-    else if (playerSelection == 1)
-    {
-        return (computerSelection == 0) ? 1 : 0;
-    }
-    else if (playerSelection == 2)
-    {
-        return (computerSelection == 1) ? 1 : 0;
-    }
-    else
-    {
-        return 2;
     }
 }
 
