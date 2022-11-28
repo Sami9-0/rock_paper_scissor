@@ -23,7 +23,6 @@ function game()
     return playerScore - computerScore;
 }
 
-//Prints winner and margin of lose
 function printWinner()
 {
     let winner = game();
@@ -36,7 +35,7 @@ function printWinner()
         console.log(`You lose! By a margin of ${-1 * winner} Good luck next time.`);
     }
 }
-//play's a one round game. Return 2 for draw, 0 for lose, 1 for win and 3 for unknown choice
+//1 for win 0 for lose
 function playRound(playerSelection, computerSelection)
 {
     playerSelection = Player();
@@ -65,7 +64,6 @@ function playRound(playerSelection, computerSelection)
 }
 
 
-//0 for rock, 1 for paper, 2 for scissor and 3 for a different selection.
 function Player(playerSelection)
 {
     //Ask's for player selection
@@ -90,7 +88,6 @@ function Player(playerSelection)
 }
 
 
-//Returns a number from 0-2. 0 stands for rock, 1 for paper and 2 for scissor.function GetComputerChoice()
 function GetComputerChoice()
 {
     let num = Math.floor((Math.random() * 3));
