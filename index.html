@@ -6,10 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
     <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div>Left</div>
-    <div>Middle</div>
-    <div>Right</div>
+    <div class="container">
+        <div class="inner player">
+            <button>rock</button>
+            <button>paper</button>
+            <button>scissor</button>
+        </div>
+        <div class="inner display">
+            <div class="inner-display title">
+                <div>You</div>
+                <div>Title</div>
+                <div>Computer</div>
+            </div>
+            <div class="inner-display middle">
+                <div class="played">You</div>
+                <div class="played">Computer</div>
+            </div>
+            <div class="inner-display">bottom</div>
+        </div>
+        <div class="inner computer">
+            <button>rock</button>
+            <button>paper</button>
+            <button>scissor</button>
+        </div>
+    </div>
 </body>
 </html>
