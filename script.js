@@ -1,6 +1,6 @@
 let playerSelection = 0;
 let computerSelection = GetComputerChoice();
-
+//console.log(playRound(playerSelection, computerSelection));
 
 //1 for win 0 for lose
 function playRound(playerSelection, computerSelection)
