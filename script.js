@@ -1,40 +1,7 @@
 let playerSelection = 0;
 let computerSelection = GetComputerChoice();
-printWinner();
 
-//Plays a 5 round game with computer
-function game()
-{
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++)
-    {
-        let winner = playRound(playerSelection, computerSelection);
-        if (winner == 0)
-        {
-            computerScore++;
-        }
-        else if (winner == 1)
-        {
-            playerScore++;
-        }
-    }
 
-    return playerScore - computerScore;
-}
-
-function printWinner()
-{
-    let winner = game();
-    if (winner > 0)
-    {
-        console.log(`You win! By a margin of ${winner} Congratulation.`);
-    }
-    else
-    {
-        console.log(`You lose! By a margin of ${-1 * winner} Good luck next time.`);
-    }
-}
 //1 for win 0 for lose
 function playRound(playerSelection, computerSelection)
 {
