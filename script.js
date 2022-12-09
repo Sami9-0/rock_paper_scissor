@@ -1,5 +1,4 @@
 const btn = document.querySelectorAll('button');
-const computer = document.querySelectorAll('.game');
 const winner = document.querySelector('.stat');
 const playerText = document.querySelector('.playerText');
 const computerText = document.querySelector('.computerText');
