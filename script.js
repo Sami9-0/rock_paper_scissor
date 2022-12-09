@@ -1,21 +1,18 @@
 const btn = document.querySelectorAll('button');
 const computer = document.querySelectorAll('.game');
 const winner = document.querySelector('.stat');
-const playerText = document.querySelector('.playerText');
-const computerText = document.querySelector('.computerText');
-let playerSelection;
+const playerImage = document.querySelector('.playerImage');
+const computerImage = document.querySelector('.computerImage');
+let arrayOfImages = ['./image/rock.png', './image/paper.png', './image/scissor.png'];
+let playerSelection = 0;
 let computerSelection;
 btn.forEach(button => button.addEventListener('click', () => {
     GetComputerChoice();
-    playerSelection = button.textContent;
-    computerText.textContent = computerSelection;
-    playerText.textContent = playerSelection.toUpperCase();
+    playerSelection = button.classList.value;
+    computerImage.textContent = computerSelection;
+    playerImage.textContent = playerSelection.toUpperCase();
     winner.textContent = SelectWinner();
 }));
-
-
-
-
 
 function SelectWinner()
 {

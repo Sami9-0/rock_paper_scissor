@@ -62,12 +62,17 @@ button {
     height: 210px;
     justify-content: space-around;
 }
-.choice > p {
+.choice > div {
     background-color: brown;
     width: 170px;
     height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+}
+img {
+    width: 150px;
+    height: auto;
     border-radius: 50%;
 }
