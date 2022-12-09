@@ -1,6 +1,52 @@
-let playerSelection = 0;
-let computerSelection = GetComputerChoice();
-//console.log(playRound(playerSelection, computerSelection));
+const btn = document.querySelectorAll('button');
+const computer = document.querySelectorAll('.game');
+let playerSelection;
+let computerSelection;
+btn.forEach(button => button.addEventListener('click', () => {
+    playerSelection = button.classList.value;
+    console.log(playerSelection);
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //1 for win 0 for lose
 function playRound(playerSelection, computerSelection)
@@ -29,31 +75,6 @@ function playRound(playerSelection, computerSelection)
         return 3;
     }
 }
-
-
-function Player(playerSelection)
-{
-    //Ask's for player selection
-    playerSelection = prompt("Let's play a game of Rock Paper Scissor.\nMake your choice:");
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection == 'rock')
-    {
-        return 0;
-    }
-    else if (playerSelection == 'paper')
-    {
-        return 1;
-    }
-    else if (playerSelection == 'scissor')
-    {
-        return 2;
-    }
-    else 
-    {
-        return 3;
-    }
-}
-
 
 function GetComputerChoice()
 {
