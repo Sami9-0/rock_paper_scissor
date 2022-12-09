@@ -1,83 +1,55 @@
 const btn = document.querySelectorAll('button');
 const computer = document.querySelectorAll('.game');
+const winner = document.querySelector('.stat');
+const playerText = document.querySelector('.playerText');
+const computerText = document.querySelector('.computerText');
 let playerSelection;
 let computerSelection;
 btn.forEach(button => button.addEventListener('click', () => {
-    playerSelection = button.classList.value;
-    console.log(playerSelection);
+    GetComputerChoice();
+    playerSelection = button.textContent;
+    computerText.textContent = computerSelection;
+    playerText.textContent = playerSelection.toUpperCase();
+    winner.textContent = SelectWinner();
 }));
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//1 for win 0 for lose
-function playRound(playerSelection, computerSelection)
+function SelectWinner()
 {
-    playerSelection = Player();
-    computerSelection = GetComputerChoice();
-
-    if (computerSelection == playerSelection)
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    if (playerSelection == computerSelection)
     {
-        return 2;
+        return "Draw";
     }
-    else if (playerSelection == 0)
+    else if (computerSelection == 'rock')
     {
-        return (computerSelection == 2) ? 1 : 0;
+        return (playerSelection == 'scissor') ? "you lose" : "You win";
     }
-    else if (playerSelection == 1)
+    else if (computerSelection == 'paper')
     {
-        return (computerSelection == 0) ? 1 : 0;
+        return (playerSelection == 'rock') ? "you lose" : "You win";
     }
-    else if (playerSelection == 2)
+    else if (computerSelection == 'scissor')
     {
-        return (computerSelection == 1) ? 1 : 0;
-    }
-    else
-    {
-        return 3;
+        return (playerSelection == 'paper') ? "you lose" : "You win";
     }
 }
-
 function GetComputerChoice()
 {
-    let num = Math.floor((Math.random() * 3));
-    return num;
+    let randNum = Math.floor((Math.random() * 3));
+    switch(randNum)
+    {
+        case 0:
+            computerSelection = 'ROCK';
+            break;
+        case 1:
+            computerSelection = 'PAPER';
+            break;
+        case 2:
+            computerSelection = 'SCISSOR'
+    }
 }
