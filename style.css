@@ -3,76 +3,76 @@ body {
     font-family: Arial, Helvetica, sans-serif, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
+    font-size: large;
 }
 .container {
-    background-color: rgb(61, 209, 235);
+    background-color: black;
+    color: white;
     display: flex;
-    height: 700px;
+    flex-direction: column;
+    height: 630px;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px 0 20px;
+    padding: 20px;
 }
-.content {
-    background-color: brown;
-    height: 600px;
-    width: 300px;
+.top {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-}
-.right > div {
-    background-color: rgb(61, 209, 235);
-    border-radius: 50%;
-    width: 170px;
-    height: 170px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-button {
-    border-style: none;
-    border-radius: 50%;
-    background-color: rgb(61, 209, 235);
-    width: 170px;
-    height: 170px;
-    font-size: large;
-}
-
-.middle {
-    width: 600px;
     gap: 20px;
 }
-
-.title, .choice, .round {
-    background-color: rgb(61, 209, 235);
-    height: 150px;
-    width: 550px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.text {
-    align-self: flex-start;
-}
-
 .choice {
-    height: 210px;
-    justify-content: space-around;
-}
-.playerText, .computerText {
-    background-color: brown;
-    width: 170px;
-    height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
+}
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+}
+button:hover, img:hover {
+    height: 150px;
+    width: 150px;
+}
+
+img {
+    height: 180px;
+    width: 180;
     border-radius: 50%;
 }
-img {
-    width: 150px;
-    height: auto;
-    border-radius: 50%;
+
+
+.middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+.stat {
+    font-size: 30px;
+    font-weight: bolder;
+}
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

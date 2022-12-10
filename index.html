@@ -4,47 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
-    <script src="./script.js" defer></script>
+    <title>RPS</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <div class="content left">
-            <button class="rock">
-                <img class="player" src="./image/rock.png" alt="ROCK">
-            </button>
-            <button class="paper">
-                <img class="player" src="./image/paper.png" alt="PAPER">
-            </button>
-            <button class="scissor">
-                <img class="player" src="./image/scissor.png" alt="SCISSOR">
-            </button>
-        </div>
-        <div class="content middle">
+        <div class="top">
             <div class="title">
-                <p>&#x21e6;Make your choice</p>
-                <p class="text">Fun Rock Paper Scissor game</p>
-                <p>Computers Selection&#x21e8;</p>
+                <p>Lets play a game of Rock Paper Scissor.&#128512;</p>
+                <p>First to score 5 wins, good luck!&#128540;</p>
             </div>
             <div class="choice">
-                <div class="playerText"></div>
-                <div class="computerText"></div>
-            </div>
-            <div class="round">
-                <p class="stat">READY, GO!</p>
+                <button class="rock">
+                    <img src="./image/rock.png" alt="ROCK">
+                </button>
+                <button class="paper">
+                    <img src="./image/paper.png" alt="PAPER">
+                </button>
+                <button class="scissor">
+                    <img src="./image/scissor.png" alt="PAPER">
+                </button>
             </div>
         </div>
-        <div class="content right">
-            <div class="rock game">
-                <img id="rock" src="./image/rock.png" alt="ROCK">
+        <div class="middle">
+            <div>
+                <img class="player" src="./image/rock.png" alt="PLAYER">
             </div>
-            <div class="paper game">
-                <img id="paper" src="./image/paper.png" alt="PAPER">
+            <p class="stat">Let's Go!</p>
+            <div>
+                <img class="computer" src="./image/rock.png" alt="COMPUTER">
             </div>
-            <div class="scissor game">
-                <img id="scissor" src="./image/scissor.png" alt="SCISSOR">
-            </div>
+        </div>
+        <div class="score">
+            <p class="playerScore">You: </p>
+            <p class="computerScore">Computer: </p>
         </div>
     </div>
 </body>
